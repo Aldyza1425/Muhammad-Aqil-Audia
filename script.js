@@ -12,6 +12,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // ================= CONTENT LOADER (LOCALSTORAGE) =================
 function loadSavedContent() {
+  const currentVersion = document.body.getAttribute('data-template-version') || '1.0';
+  const savedVersion = localStorage.getItem('cv_template_version');
+
+  if (savedVersion !== currentVersion) {
+    // Clear old localStorage CV cache
+    localStorage.removeItem('cv_sidebar');
+    localStorage.removeItem('cv_main');
+    localStorage.setItem('cv_template_version', currentVersion);
+    return; // Stop loading outdated cached contents
+  }
+
   const savedSidebar = localStorage.getItem('cv_sidebar');
   const savedMain = localStorage.getItem('cv_main');
 

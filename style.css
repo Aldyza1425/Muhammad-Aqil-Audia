@@ -694,6 +694,8 @@ body.edit-mode-active .skill-tag.editable {
     height: 297mm;
     overflow: hidden;
     display: block;
+    font-size: 7.8pt !important;
+    line-height: 1.25 !important;
   }
   
   .portfolio-container {
@@ -708,14 +710,14 @@ body.edit-mode-active .skill-tag.editable {
   .sidebar {
     width: 68mm !important;
     height: 297mm !important;
-    padding: 12mm 6mm 12mm 8mm !important; /* Extra tight padding */
+    padding: 8mm 4mm 8mm 6mm !important; /* Slightly tighter padding */
     box-sizing: border-box !important;
   }
 
   .main-content {
     width: 142mm !important;
     height: 297mm !important;
-    padding: 12mm 10mm 12mm 10mm !important; /* Extra tight padding */
+    padding: 8mm 6mm 8mm 6mm !important; /* Slightly tighter padding */
     box-sizing: border-box !important;
   }
   
@@ -737,6 +739,147 @@ body.edit-mode-active .skill-tag.editable {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
+  }
+
+  /* Print spacing and scaling overrides to guarantee single page fit */
+  .profile-photo {
+    width: 80px !important;
+    height: 80px !important;
+    border-width: 2.5px !important;
+    margin-bottom: 5px !important;
+  }
+  
+  .profile-container {
+    margin-bottom: 6px !important;
+  }
+
+  .sidebar-section {
+    margin-bottom: 6px !important;
+  }
+
+  .sidebar-title {
+    font-size: 9pt !important;
+    margin-bottom: 5px !important;
+    padding-bottom: 1px !important;
+  }
+
+  .contact-item {
+    margin-bottom: 3.5px !important;
+    font-size: 7.2pt !important;
+  }
+
+  .contact-icon {
+    width: 12px !important;
+    height: 12px !important;
+    margin-right: 4px !important;
+  }
+
+  .skill-tag {
+    font-size: 6.8pt !important;
+    padding: 1px 4px !important;
+  }
+
+  .skills-container {
+    gap: 3px !important;
+  }
+
+  .cert-item {
+    margin-bottom: 3.5px !important;
+    font-size: 7.2pt !important;
+  }
+
+  .cert-meta {
+    font-size: 6.8pt !important;
+    margin-top: 0.5px !important;
+  }
+
+  .header-section {
+    margin-bottom: 6px !important;
+  }
+
+  .candidate-name {
+    font-size: 16pt !important;
+  }
+
+  .candidate-title {
+    font-size: 9.5pt !important;
+    margin-top: 1px !important;
+  }
+
+  .section {
+    margin-bottom: 6px !important;
+  }
+
+  .section-title {
+    font-size: 9.5pt !important;
+    margin-bottom: 5px !important;
+  }
+
+  .section-title::after {
+    margin-left: 5px !important;
+  }
+
+  .timeline-item {
+    padding-left: 8px !important;
+    margin-bottom: 5px !important;
+  }
+
+  .timeline-item:last-child::before {
+    height: 5px !important;
+  }
+
+  .timeline-marker {
+    left: -3px !important;
+    top: 2.5px !important;
+    width: 5px !important;
+    height: 5px !important;
+  }
+
+  .item-header {
+    margin-bottom: 0.5px !important;
+    gap: 1.5px !important;
+  }
+
+  .item-title {
+    font-size: 8.5pt !important;
+  }
+
+  .item-org {
+    font-size: 7.8pt !important;
+  }
+
+  .item-date {
+    font-size: 7.2pt !important;
+    padding: 0 2px !important;
+  }
+
+  .item-location {
+    font-size: 7.2pt !important;
+    margin-bottom: 1.5px !important;
+  }
+
+  .item-details li {
+    padding-left: 5px !important;
+    margin-bottom: 1.2px !important;
+    font-size: 7.6pt !important;
+    line-height: 1.2 !important;
+  }
+
+  .edu-gpa {
+    font-size: 7.6pt !important;
+    margin-top: 1px !important;
+    margin-bottom: 1.5px !important;
+  }
+
+  .edu-thesis {
+    font-size: 7.6pt !important;
+    line-height: 1.2 !important;
+    padding-left: 5px !important;
+  }
+
+  .edu-thesis::before {
+    font-size: 6pt !important;
+    top: 0.5px !important;
   }
   
   @page {
