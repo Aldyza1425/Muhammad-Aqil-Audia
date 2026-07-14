@@ -719,6 +719,13 @@ body.edit-mode-active .skill-tag.editable {
     background-color: var(--primary-light) !important;
   }
   
+  /* Disable animations and ensure full opacity in print */
+  .reveal {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  
   @page {
     size: A4;
     margin: 0;
