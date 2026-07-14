@@ -1,4 +1,4 @@
-// Portfolio Interactivity (Dark Mode, Scroll Reveal, Edit Mode & Translator)
+// Portfolio Interactivity (Dark Mode, Edit Mode & Translator)
 
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Load saved content from localStorage first before initializing scripts
@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // 2. Initialize modules
   initTheme();
   initLanguage();
-  initScrollReveal();
   initEditMode();
 });
 
@@ -16,12 +15,13 @@ function loadSavedContent() {
   const savedSidebar = localStorage.getItem('cv_sidebar');
   const savedMain = localStorage.getItem('cv_main');
 
-  if (savedSidebar) {
+  // Add minimum length validation to prevent empty/corrupt cache states
+  if (savedSidebar && savedSidebar.trim().length > 100) {
     const sidebar = document.querySelector('.sidebar');
     if (sidebar) sidebar.innerHTML = savedSidebar;
   }
 
-  if (savedMain) {
+  if (savedMain && savedMain.trim().length > 100) {
     const mainContent = document.querySelector('.main-content');
     if (mainContent) mainContent.innerHTML = savedMain;
   }
@@ -90,45 +90,14 @@ function initLanguage() {
       downloadBtn.setAttribute('href', newLang === 'en' ? 'cv_en.pdf' : 'cv_id.pdf');
     }
 
-    // Trigger active visibility in scroll reveal
-    const revealElements = document.querySelectorAll('.reveal');
-    revealElements.forEach(el => {
-      // Re-evaluate visibility triggers if they were hidden in other lang
-      el.classList.add('active');
-    });
+    // No JS reveal logic needed as animation is handled by pure CSS
 
     const toastMsg = newLang === 'en' ? 'Switched to English!' : 'Dialihkan ke Bahasa Indonesia!';
     showToast(toastMsg);
   });
 }
 
-// ================= SCROLL REVEAL CONTROLLER =================
-function initScrollReveal() {
-  const revealElements = document.querySelectorAll('.reveal');
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  
-  if (revealElements.length === 0 || prefersReducedMotion) {
-    revealElements.forEach(el => el.classList.add('active'));
-    return;
-  }
-
-  const observerOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.1
-  };
-
-  const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('active');
-        obs.unobserve(entry.target);
-      }
-    });
-  }, observerOptions);
-
-  revealElements.forEach(el => observer.observe(el));
-}
+// Scroll reveal handled natively by CSS keyframes
 
 // ================= EDIT MODE & PERSISTENCE =================
 function initEditMode() {
