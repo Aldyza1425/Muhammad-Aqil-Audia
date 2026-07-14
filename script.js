@@ -86,6 +86,11 @@ function initLanguage() {
   
   if (downloadBtn) {
     downloadBtn.setAttribute('href', savedLang === 'en' ? 'cv_en.pdf' : 'cv_id.pdf');
+    // Intercept click and trigger native print dialog
+    downloadBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.print();
+    });
   }
 
   langBtn.addEventListener('click', () => {
