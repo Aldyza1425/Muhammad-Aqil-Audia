@@ -1,4 +1,4 @@
-// Portfolio Interactivity (Dark Mode, Scroll Reveal & Edit Mode)
+// Portfolio Interactivity (Dark Mode, Scroll Reveal, Edit Mode & Translator)
 
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Load saved content from localStorage first before initializing scripts
@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // 2. Initialize modules
   initTheme();
+  initLanguage();
   initScrollReveal();
   initEditMode();
 });
@@ -54,6 +55,50 @@ function initTheme() {
     setTimeout(() => {
       themeBtn.style.transform = '';
     }, 300);
+  });
+}
+
+// ================= LANGUAGE CONTROLLER =================
+function initLanguage() {
+  const langBtn = document.getElementById('lang-btn');
+  const downloadBtn = document.getElementById('download-btn');
+  if (!langBtn) return;
+
+  // Check URL parameters first (e.g. ?lang=id)
+  const urlParams = new URLSearchParams(window.location.search);
+  const urlLang = urlParams.get('lang');
+
+  // Retrieve saved language, default to English
+  const savedLang = urlLang || localStorage.getItem('cv_lang') || 'en';
+  document.documentElement.setAttribute('data-lang', savedLang);
+  langBtn.textContent = savedLang.toUpperCase();
+  
+  if (downloadBtn) {
+    downloadBtn.setAttribute('href', savedLang === 'en' ? 'cv_en.pdf' : 'cv_id.pdf');
+  }
+
+  langBtn.addEventListener('click', () => {
+    const currentLang = document.documentElement.getAttribute('data-lang');
+    const newLang = currentLang === 'en' ? 'id' : 'en';
+
+    document.documentElement.setAttribute('data-lang', newLang);
+    langBtn.textContent = newLang.toUpperCase();
+    localStorage.setItem('cv_lang', newLang);
+
+    // Sync download PDF file target
+    if (downloadBtn) {
+      downloadBtn.setAttribute('href', newLang === 'en' ? 'cv_en.pdf' : 'cv_id.pdf');
+    }
+
+    // Trigger active visibility in scroll reveal
+    const revealElements = document.querySelectorAll('.reveal');
+    revealElements.forEach(el => {
+      // Re-evaluate visibility triggers if they were hidden in other lang
+      el.classList.add('active');
+    });
+
+    const toastMsg = newLang === 'en' ? 'Switched to English!' : 'Dialihkan ke Bahasa Indonesia!';
+    showToast(toastMsg);
   });
 }
 
@@ -152,13 +197,22 @@ function initEditMode() {
       }
 
       // Show Toast Notification
-      showToast('Changes saved! Press Ctrl + P to export as PDF.');
+      const currentLang = document.documentElement.getAttribute('data-lang');
+      const toastText = currentLang === 'en' 
+        ? 'Changes saved! Press Ctrl + P to export as PDF.' 
+        : 'Perubahan disimpan! Tekan Ctrl + P untuk ekspor ke PDF.';
+      showToast(toastText);
     }
   });
 
   // Reset CV to Default Template
   resetBtn.addEventListener('click', () => {
-    if (confirm('Revert all your edits back to the default template?')) {
+    const currentLang = document.documentElement.getAttribute('data-lang');
+    const confirmMsg = currentLang === 'en'
+      ? 'Revert all your edits back to the default template?'
+      : 'Kembalikan seluruh hasil edit Anda ke templat awal?';
+      
+    if (confirm(confirmMsg)) {
       localStorage.removeItem('cv_sidebar');
       localStorage.removeItem('cv_main');
       window.location.reload();

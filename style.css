@@ -49,7 +49,7 @@ body {
   color: var(--text-main);
   background-color: var(--bg-body);
   line-height: 1.5;
-  font-size: 10pt;
+  font-size: 9.5pt;
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -57,6 +57,15 @@ body {
   padding: 40px 20px;
   transition: var(--transition);
   overflow-y: auto;
+}
+
+/* ================= LANGUAGE SWITCH VISIBILITY ================= */
+html[data-lang="en"] [lang="id"] {
+  display: none !important;
+}
+
+html[data-lang="id"] [lang="en"] {
+  display: none !important;
 }
 
 /* ================= PORTFOLIO CONTAINER ================= */
@@ -77,7 +86,7 @@ body {
   width: 32%;
   background-color: var(--bg-sidebar);
   border-right: 1px solid var(--border-color);
-  padding: 40px 25px;
+  padding: 30px 20px;
   display: flex;
   flex-direction: column;
   transition: var(--transition);
@@ -85,17 +94,17 @@ body {
 
 .profile-container {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .profile-photo {
-  width: 130px;
-  height: 130px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   object-fit: cover;
   border: 4px solid var(--primary);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  margin-bottom: 15px;
+  margin-bottom: 12px;
   transition: var(--transition);
 }
 
@@ -105,19 +114,19 @@ body {
 }
 
 .sidebar-section {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .sidebar-title {
   font-family: 'Outfit', sans-serif;
-  font-size: 11pt;
+  font-size: 10.5pt;
   font-weight: 700;
   color: var(--text-dark);
   text-transform: uppercase;
   letter-spacing: 1px;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
   border-bottom: 2px solid var(--primary);
-  padding-bottom: 6px;
+  padding-bottom: 4px;
   display: inline-block;
   width: 100%;
   transition: var(--transition);
@@ -127,16 +136,16 @@ body {
 .contact-item {
   display: flex;
   align-items: flex-start;
-  margin-bottom: 12px;
-  font-size: 9pt;
+  margin-bottom: 10px;
+  font-size: 8.5pt;
   color: var(--text-main);
   transition: var(--transition);
 }
 
 .contact-icon {
-  width: 18px;
-  height: 18px;
-  margin-right: 12px;
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
   margin-top: 2px;
   color: var(--primary);
   flex-shrink: 0;
@@ -145,7 +154,7 @@ body {
 
 .contact-text {
   word-break: break-all;
-  line-height: 1.4;
+  line-height: 1.35;
 }
 
 .contact-text a {
@@ -164,16 +173,16 @@ body {
 .skills-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 6px;
 }
 
 .skill-tag {
   background-color: var(--primary-light);
   color: var(--primary);
-  font-size: 8.5pt;
+  font-size: 8pt;
   font-weight: 550;
-  padding: 4px 10px;
-  border-radius: 6px;
+  padding: 3px 8px;
+  border-radius: 5px;
   border: 1px solid rgba(37, 99, 235, 0.15);
   transition: var(--transition);
 }
@@ -188,26 +197,26 @@ body {
 
 /* Certifications */
 .cert-item {
-  margin-bottom: 15px;
-  font-size: 9pt;
+  margin-bottom: 10px;
+  font-size: 8.5pt;
 }
 
 .cert-title {
   font-weight: 600;
   color: var(--text-dark);
-  line-height: 1.4;
+  line-height: 1.35;
 }
 
 .cert-meta {
-  font-size: 8.5pt;
+  font-size: 8pt;
   color: var(--text-light);
-  margin-top: 4px;
+  margin-top: 3px;
 }
 
 /* ================= MAIN CONTENT ================= */
 .main-content {
   width: 68%;
-  padding: 40px 35px;
+  padding: 30px 25px;
   display: flex;
   flex-direction: column;
   background-color: var(--bg-container);
@@ -215,12 +224,12 @@ body {
 }
 
 .header-section {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .candidate-name {
   font-family: 'Outfit', sans-serif;
-  font-size: 28pt;
+  font-size: 26pt;
   font-weight: 800;
   color: var(--text-dark);
   letter-spacing: -0.5px;
@@ -231,17 +240,17 @@ body {
 
 .candidate-title {
   font-family: 'Outfit', sans-serif;
-  font-size: 14pt;
+  font-size: 12.5pt;
   font-weight: 500;
   color: var(--primary);
-  margin-top: 6px;
+  margin-top: 4px;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   transition: var(--transition);
 }
 
 .section {
-  margin-bottom: 30px;
+  margin-bottom: 22px;
 }
 
 .section:last-child {
@@ -250,12 +259,12 @@ body {
 
 .section-title {
   font-family: 'Outfit', sans-serif;
-  font-size: 13pt;
+  font-size: 12pt;
   font-weight: 700;
   color: var(--text-dark);
   text-transform: uppercase;
   letter-spacing: 1px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   display: flex;
   align-items: center;
   transition: var(--transition);
@@ -266,23 +275,23 @@ body {
   flex-grow: 1;
   height: 1px;
   background-color: var(--border-color);
-  margin-left: 15px;
+  margin-left: 12px;
   transition: var(--transition);
 }
 
 /* Timeline/Card Items */
 .timeline-item {
   position: relative;
-  padding-left: 20px;
+  padding-left: 18px;
   border-left: 2px solid var(--border-color);
-  margin-bottom: 25px;
+  margin-bottom: 16px;
   transition: var(--transition);
 }
 
 .timeline-item:last-child {
   margin-bottom: 0;
   border-left: 2px solid transparent;
-  padding-left: 20px;
+  padding-left: 18px;
 }
 
 .timeline-item:last-child::before {
@@ -290,7 +299,7 @@ body {
   position: absolute;
   left: -2px;
   top: 0;
-  height: 20px;
+  height: 16px;
   border-left: 2px solid var(--border-color);
   transition: var(--transition);
 }
@@ -316,44 +325,44 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 6px;
 }
 
 .item-title {
-  font-size: 11pt;
+  font-size: 10.5pt;
   font-weight: 700;
   color: var(--text-dark);
   transition: var(--transition);
 }
 
 .item-org {
-  font-size: 10pt;
+  font-size: 9.5pt;
   font-weight: 600;
   color: var(--primary);
   display: block;
-  margin-top: 2px;
+  margin-top: 1px;
   transition: var(--transition);
 }
 
 .item-date {
-  font-size: 9pt;
+  font-size: 8.5pt;
   font-weight: 500;
   color: var(--text-light);
   white-space: nowrap;
   background-color: var(--bg-sidebar);
-  padding: 2px 8px;
+  padding: 1px 6px;
   border-radius: 4px;
   border: 1px solid var(--border-color);
   transition: var(--transition);
 }
 
 .item-location {
-  font-size: 9pt;
+  font-size: 8.5pt;
   font-style: italic;
   color: var(--text-light);
-  margin-bottom: 10px;
+  margin-bottom: 6px;
   transition: var(--transition);
 }
 
@@ -364,11 +373,12 @@ body {
 
 .item-details li {
   position: relative;
-  padding-left: 15px;
-  margin-bottom: 6px;
-  font-size: 9.5pt;
+  padding-left: 12px;
+  margin-bottom: 4px;
+  font-size: 9pt;
   color: var(--text-main);
   text-align: justify;
+  line-height: 1.35;
   transition: var(--transition);
 }
 
@@ -384,16 +394,16 @@ body {
 .edu-gpa {
   font-weight: 600;
   color: var(--text-dark);
-  margin-top: 6px;
-  margin-bottom: 8px;
+  margin-top: 4px;
+  margin-bottom: 6px;
   transition: var(--transition);
 }
 
 .edu-thesis {
-  font-size: 9.5pt;
+  font-size: 9pt;
   color: var(--text-main);
-  line-height: 1.4;
-  padding-left: 15px;
+  line-height: 1.35;
+  padding-left: 12px;
   position: relative;
   transition: var(--transition);
 }
@@ -403,12 +413,12 @@ body {
   position: absolute;
   left: 0;
   color: var(--primary);
-  font-size: 8pt;
+  font-size: 7.5pt;
   top: 2px;
   transition: var(--transition);
 }
 
-/* ================= ACTIONS BAR (THEME, EDIT, RESET) ================= */
+/* ================= ACTIONS BAR (THEME, EDIT, RESET, LANG) ================= */
 .actions-container {
   position: fixed;
   top: 25px;
@@ -442,6 +452,15 @@ body {
 .action-btn svg {
   width: 20px;
   height: 20px;
+}
+
+/* Language button style override */
+.action-btn.text-btn {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 10pt;
+  letter-spacing: 0.5px;
+  color: var(--primary);
 }
 
 /* Helper utility class */
@@ -573,15 +592,15 @@ body.edit-mode-active .skill-tag.editable {
   }
   .sidebar {
     width: 35%;
-    padding: 30px 15px;
+    padding: 25px 15px;
   }
   .main-content {
     width: 65%;
-    padding: 30px 20px;
+    padding: 25px 20px;
   }
   .profile-photo {
-    width: 110px;
-    height: 110px;
+    width: 105px;
+    height: 105px;
   }
   .candidate-name {
     font-size: 22pt;
@@ -604,17 +623,17 @@ body.edit-mode-active .skill-tag.editable {
     width: 100%;
     border-right: none;
     border-bottom: 1px solid var(--border-color);
-    padding: 30px 20px;
+    padding: 25px 20px;
   }
   
   .main-content {
     width: 100%;
-    padding: 30px 20px;
+    padding: 25px 20px;
   }
   
   .profile-photo {
-    width: 115px;
-    height: 115px;
+    width: 110px;
+    height: 110px;
     margin-bottom: 10px;
   }
   
@@ -640,7 +659,7 @@ body.edit-mode-active .skill-tag.editable {
   }
 }
 
-/* ================= PRINT OVERRIDES (NO OUTLINES, NO BUTTONS) ================= */
+/* ================= PRINT OVERRIDES (NO OUTLINES, NO BUTTONS, EXACT HEIGHT) ================= */
 @media print {
   /* Hide interactive controls completely */
   .actions-container,
@@ -666,6 +685,21 @@ body.edit-mode-active .skill-tag.editable {
     box-shadow: none;
     margin: 0;
     border-radius: 0;
+    display: flex !important; /* Force side-by-side flex layout on print */
+  }
+
+  .sidebar {
+    width: 68mm !important;
+    height: 297mm !important;
+    padding: 12mm 6mm 12mm 8mm !important; /* Extra tight padding */
+    box-sizing: border-box !important;
+  }
+
+  .main-content {
+    width: 142mm !important;
+    height: 297mm !important;
+    padding: 12mm 10mm 12mm 10mm !important; /* Extra tight padding */
+    box-sizing: border-box !important;
   }
   
   /* Clean up edit borders in printed version */
