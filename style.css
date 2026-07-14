@@ -665,6 +665,19 @@ body.edit-mode-active .skill-tag.editable {
 
 /* ================= PRINT OVERRIDES (NO OUTLINES, NO BUTTONS, EXACT HEIGHT) ================= */
 @media print {
+  /* Force light theme variables during print */
+  :root, html {
+    --bg-body: #ffffff !important;
+    --bg-container: #ffffff !important;
+    --bg-sidebar: #f8fafc !important;
+    --border-color: #e2e8f0 !important;
+    --text-dark: #0f172a !important;
+    --text-main: #334155 !important;
+    --text-light: #64748b !important;
+    --primary: #1e3a8a !important;
+    --primary-light: #eff6ff !important;
+  }
+
   /* Hide interactive controls completely */
   .actions-container,
   .download-fab,
